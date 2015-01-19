@@ -1,3 +1,2 @@
-com.formulasearchengine.backend
-com.formulasearchengine.backend.domain
-com.formulasearchengine.backend.rest
+com.formulasearchengine.backend.basex.restd
+com.formulasearchengine.backend.basex.restd.rest
