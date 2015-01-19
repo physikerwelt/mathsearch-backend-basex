@@ -1,0 +1,3 @@
+com.formulasearchengine.backend.AppModuleFactoryMachine
+com.formulasearchengine.backend.rest.HelloResourceFactoryMachine
+com.formulasearchengine.backend.rest.HelloResourceRouterFactoryMachine
