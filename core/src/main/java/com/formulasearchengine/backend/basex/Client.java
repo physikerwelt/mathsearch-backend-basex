@@ -1,7 +1,9 @@
 package com.formulasearchengine.backend.basex;
 
 import com.formulasearchengine.mathmlquerygenerator.NtcirPattern;
+import com.formulasearchengine.mathmlquerygenerator.XQueryGenerator;
 import net.xqj.basex.BaseXXQDataSource;
+import org.w3c.dom.Document;
 
 import javax.xml.xquery.*;
 import java.util.List;
@@ -65,7 +67,12 @@ public class Client {
 		conn.close();
 		return rank--;
 	}
-
+	public String runMWSQuery(Document mwsQuery){
+		XQueryGenerator generator = new XQueryGenerator( mwsQuery );
+		generator.setHeader( Benchmark.BASEX_HEADER );
+		generator.setFooter(  Benchmark.BASEX_FOOTER  );
+		return execute( generator.toString() ) ;
+	}
 	public String execute(String query){
 		currentResult = currentRun.new Result( "" );
 		try{

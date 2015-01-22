@@ -1,14 +1,34 @@
 package com.formulasearchengine.backend.basex;
 
 import junit.framework.TestCase;
+import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.w3c.dom.Document;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Scanner;
 
 public class ClientTest extends TestCase {
+	@BeforeClass
+	public void setup() throws Exception {
+		(new ServerTest()).testImportData();
+		Thread.sleep( 3000 );
+	}
+	@SuppressWarnings("SameParameterValue")
+	static public String getFileContents (String fname) throws IOException {
+		try (InputStream is = ClientTest.class.getClassLoader().getResourceAsStream(fname)) {
+			final Scanner s = new Scanner(is, "UTF-8");
+			//Stupid scanner tricks to read the entire file as one token
+			s.useDelimiter("\\A");
+			return s.hasNext() ? s.next() : "";
+		}
+	}
 	@Test
 	@Ignore
 	public void testbasicTest() throws Exception {
-		(new ServerTest()).testImportData();
+
 		Client c = new Client();
 		String res = c.execute( "declare default element namespace \"http://www.w3.org/1998/Math/MathML\";\n" +
 			"for $m in //*:expr return \n" +
@@ -59,5 +79,16 @@ public class ClientTest extends TestCase {
 			"    </result>\n" );
 	}
 
+	public void testMWSQuery() throws Exception {
+		setup();
+		final String testInput = getFileContents( "dummy29.xml" );
+		final String expectedOutput = "    <result for=\"NTCIR11-Math-\" >\n" +
+			"      <hit id=\"dummy29\" xref=\"math000000000000.xml\" score=\"10\" rank=\"1\"/>\n" +
+			"    </result>\n";
+		Document query = XMLHelper.String2Doc(testInput);
+		Client c = new Client();
+		String res = c.runMWSQuery( query );
+		assertEquals( expectedOutput, res.replaceAll( "runtime=\"\\d+\"" , "" ) );
+	}
 
 }
