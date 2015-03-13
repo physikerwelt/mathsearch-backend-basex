@@ -3,9 +3,13 @@ package com.formulasearchengine.backend.basex;
 import org.junit.After;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
+
+import static org.junit.Assert.assertEquals;
 
 public class ServerTest  {
 	private Server srv;
@@ -40,7 +44,14 @@ public class ServerTest  {
 	public void testQuery () throws Exception {
 		String fcontent = getFileContents( "sampleHarvest.xml" );
 		srv.importData( fcontent );
-		srv.runQuery( "count(./*/*)", System.out );
+
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		PrintStream ps = new PrintStream(baos);
+		srv.runQuery( "count(./*/*)", ps );
+		assertEquals("104",baos.toString("UTF-8"));
+		baos = new ByteArrayOutputStream();
+		srv.runQuery( "info", ps );
+		System.out.println(baos.toString());
 	}
 
 }
