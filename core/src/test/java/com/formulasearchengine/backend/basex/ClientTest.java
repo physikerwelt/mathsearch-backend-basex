@@ -19,9 +19,10 @@ public class ClientTest extends TestCase {
 				"<results>\n" +
 				"   <message>{$message}</message>\n" +
 				"</results>" );
-		if ( res.contains( "failed XQJNC001 - Connection refused: connect" ) ) {
+		if ( res.contains( "failed XQJNC001 - Connection refused" ) ) {
 			System.out.println( res );
 			(new ServerTest()).testImportData();
+			Thread.sleep( 3000 );
 		}
 	}
 	@SuppressWarnings("SameParameterValue")
@@ -45,7 +46,9 @@ public class ClientTest extends TestCase {
 			"fn:count($x/*) = 3\n" +
 			"return\n" +
 			"<result>{$m/@url}</result>" );
-		assertEquals( res.replaceFirst( "runtime=\"\\d+\"","" ), "    <result for=\"NTCIR11-Math-\" >\n" +
+		assertEquals( "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+			"<results xmlns=\"http://ntcir-math.nii.ac.jp/\" total=\"36\">\n" +
+			"    <result for=\"NTCIR11-Math-\" >\n" +
 			"      <hit id=\"<result xmlns=\"http://www.w3.org/1998/Math/MathML\" url=\"math.4.5\"/>\" xref=\"math000000000000.xml\" score=\"10\" rank=\"1\"/>\n" +
 			"      <hit id=\"<result xmlns=\"http://www.w3.org/1998/Math/MathML\" url=\"math.4.5\"/>\" xref=\"math000000000000.xml\" score=\"10\" rank=\"2\"/>\n" +
 			"      <hit id=\"<result xmlns=\"http://www.w3.org/1998/Math/MathML\" url=\"math.5.2\"/>\" xref=\"math000000000000.xml\" score=\"10\" rank=\"3\"/>\n" +
@@ -82,8 +85,8 @@ public class ClientTest extends TestCase {
 			"      <hit id=\"<result xmlns=\"http://www.w3.org/1998/Math/MathML\" url=\"math.8.33\"/>\" xref=\"math000000000000.xml\" score=\"10\" rank=\"34\"/>\n" +
 			"      <hit id=\"<result xmlns=\"http://www.w3.org/1998/Math/MathML\" url=\"math.8.34\"/>\" xref=\"math000000000000.xml\" score=\"10\" rank=\"35\"/>\n" +
 			"      <hit id=\"<result xmlns=\"http://www.w3.org/1998/Math/MathML\" url=\"math.8.35\"/>\" xref=\"math000000000000.xml\" score=\"10\" rank=\"36\"/>\n" +
-			"      <hit id=\"<result xmlns=\"http://www.w3.org/1998/Math/MathML\" url=\"dummy29\"/>\" xref=\"math000000000000.xml\" score=\"10\" rank=\"37\"/>\n" +
-			"    </result>\n" );
+			"    </result>\n" +
+			"</results>\n" , res.replaceFirst( "runtime=\"\\d+\"","" ));
 	}
 	@Ignore
 	public void MWSQuery () throws Exception {
@@ -117,6 +120,7 @@ public class ClientTest extends TestCase {
 		assertEquals( expectedOutput, res.replaceAll( "runtime=\"\\d+\"" , "" ) );
 	}
 	@Test
+	@Ignore
 	public void testSequential() throws  Exception{
 		setup();
 		basicTest();
