@@ -1,0 +1,228 @@
+2015-03-13 08:53:13,233 [main            ] [          ] INFO  org.eclipse.jetty.server.Server - jetty-8.1.8.v20121106
+2015-03-13 08:53:13,479 [main            ] [          ] INFO  restx.RestxMainRouterFactory - LOADING MAIN ROUTER
+2015-03-13 08:53:13,479 [main            ] [          ] INFO  restx.RestxMainRouterFactory - 
+--------------------------------------
+ -- RESTX >> LOAD ON REQUEST << >> CLEAN << >> TEST MODE <<
+ -- for admin console,
+ --   VISIT http://127.0.0.1:54234/api/@/ui/
+ --
+
+2015-03-13 08:53:14,663 [qtp1026454534-14] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:53:14,751 [qtp1026454534-14] [          ] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+2015-03-13 08:53:14,853 [qtp1026454534-14] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /hello ? who=xavier - per request factory created in 1,165 s
+2015-03-13 08:53:14,865 [qtp1026454534-14] [          ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /hello ? who=xavier >> OK - 11,68 ms
+2015-03-13 08:53:15,546 [qtp1026454534-14] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:53:15,595 [qtp1026454534-14] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /message - per request factory created in 414,9 ms
+2015-03-13 08:53:15,626 [qtp1026454534-14] [admin     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /message >> OK - 29,98 ms
+2015-03-13 08:53:16,273 [qtp1026454534-14] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:53:16,331 [qtp1026454534-14] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /message - per request factory created in 367,0 ms
+2015-03-13 08:53:16,345 [qtp1026454534-14] [user1     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /message >> OK - 12,77 ms
+2015-03-13 08:53:16,897 [qtp1026454534-14] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:53:16,959 [qtp1026454534-14] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] POST /mypojo - per request factory created in 381,6 ms
+2015-03-13 08:53:17,050 [qtp1026454534-14] [user1     ] WARN  restx.StdRestxMainRouter - request raised IllegalArgumentException: ConstraintViolationImpl{interpolatedMessage='darf nicht null sein', propertyPath=value, rootBeanClass=class com.formulasearchengine.backend.basex.rest.HelloResource$MyPOJO, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+java.lang.IllegalArgumentException: ConstraintViolationImpl{interpolatedMessage='darf nicht null sein', propertyPath=value, rootBeanClass=class com.formulasearchengine.backend.basex.rest.HelloResource$MyPOJO, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+	at restx.validation.Validations.checkValid(Validations.java:34) ~[restx-core-0.34.jar:na]
+	at com.formulasearchengine.backend.basex.rest.HelloResourceRouter$3.doRoute(HelloResourceRouter.java:102) ~[classes/:na]
+	at com.formulasearchengine.backend.basex.rest.HelloResourceRouter$3.doRoute(HelloResourceRouter.java:98) ~[classes/:na]
+	at restx.entity.StdEntityRoute.handle(StdEntityRoute.java:139) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.ResponseCloserFilter.handle(ResponseCloserFilter.java:28) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.CacheFilter$1.handle(CacheFilter.java:51) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.security.RestxSessionLogFilter.handle(RestxSessionLogFilter.java:43) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.security.RestxSessionCookieFilter.handle(RestxSessionCookieFilter.java:96) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.stats.RestxStatsCollectionFilter.handle(RestxStatsCollectionFilter.java:39) ~[restx-stats-admin-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.StdRestxMainRouter.route(StdRestxMainRouter.java:152) ~[restx-core-0.34.jar:na]
+	at restx.RestxMainRouterFactory$PerRequestFactoryLoader.route(RestxMainRouterFactory.java:228) [restx-core-0.34.jar:na]
+	at restx.RestxMainRouterFactory$RecordingMainRouter.route(RestxMainRouterFactory.java:185) [restx-core-0.34.jar:na]
+	at restx.servlet.AbstractRestxMainRouterServlet.service(AbstractRestxMainRouterServlet.java:48) [restx-servlet-0.34.jar:na]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:770) [javax.servlet-api-3.0.1.jar:3.0.1]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669) [jetty-servlet-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) [jetty-servlet-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:536) [jetty-security-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382) [jetty-servlet-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:52) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:365) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856) [jetty-http-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-http-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628) [jetty-io-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52) [jetty-io-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_55]
+2015-03-13 08:53:17,051 [qtp1026454534-14] [user1     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] POST /mypojo >> BAD_REQUEST - 91,85 ms
+2015-03-13 08:53:17,628 [qtp1026454534-14] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:53:17,689 [qtp1026454534-14] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] POST /mypojo - per request factory created in 400,2 ms
+2015-03-13 08:53:17,708 [qtp1026454534-14] [user1     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] POST /mypojo >> OK - 16,31 ms
+2015-03-13 08:53:18,223 [qtp1026454534-14] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:53:18,275 [qtp1026454534-14] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /message - per request factory created in 333,1 ms
+2015-03-13 08:53:18,284 [qtp1026454534-14] [user2     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /message >> FORBIDDEN - 8,390 ms
+2015-03-13 08:53:18,542 [main            ] [          ] INFO  o.e.j.s.listener.ELContextCleaner - javax.el.BeanELResolver purged
+2015-03-13 08:56:59,872 [main            ] [          ] INFO  org.eclipse.jetty.server.Server - jetty-8.1.8.v20121106
+2015-03-13 08:57:00,085 [main            ] [          ] INFO  restx.RestxMainRouterFactory - LOADING MAIN ROUTER
+2015-03-13 08:57:00,086 [main            ] [          ] INFO  restx.RestxMainRouterFactory - 
+--------------------------------------
+ -- RESTX >> LOAD ON REQUEST << >> CLEAN << >> TEST MODE <<
+ -- for admin console,
+ --   VISIT http://127.0.0.1:54313/api/@/ui/
+ --
+
+2015-03-13 08:57:01,107 [qtp885216587-14 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:01,199 [qtp885216587-14 ] [          ] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+2015-03-13 08:57:01,300 [qtp885216587-14 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /hello ? who=xavier - per request factory created in 1,027 s
+2015-03-13 08:57:01,312 [qtp885216587-14 ] [          ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /hello ? who=xavier >> OK - 10,83 ms
+2015-03-13 08:57:01,907 [qtp885216587-14 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:01,968 [qtp885216587-14 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /message - per request factory created in 425,7 ms
+2015-03-13 08:57:01,997 [qtp885216587-14 ] [admin     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /message >> OK - 28,59 ms
+2015-03-13 08:57:02,677 [qtp885216587-14 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:02,750 [qtp885216587-14 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /message - per request factory created in 496,6 ms
+2015-03-13 08:57:02,763 [qtp885216587-14 ] [user1     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /message >> OK - 12,70 ms
+2015-03-13 08:57:04,228 [qtp885216587-14 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:04,302 [qtp885216587-14 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] POST /mypojo - per request factory created in 987,4 ms
+2015-03-13 08:57:04,393 [qtp885216587-14 ] [user1     ] WARN  restx.StdRestxMainRouter - request raised IllegalArgumentException: ConstraintViolationImpl{interpolatedMessage='darf nicht null sein', propertyPath=value, rootBeanClass=class com.formulasearchengine.backend.basex.rest.HelloResource$MyPOJO, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+java.lang.IllegalArgumentException: ConstraintViolationImpl{interpolatedMessage='darf nicht null sein', propertyPath=value, rootBeanClass=class com.formulasearchengine.backend.basex.rest.HelloResource$MyPOJO, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+	at restx.validation.Validations.checkValid(Validations.java:34) ~[restx-core-0.34.jar:na]
+	at com.formulasearchengine.backend.basex.rest.HelloResourceRouter$3.doRoute(HelloResourceRouter.java:102) ~[classes/:na]
+	at com.formulasearchengine.backend.basex.rest.HelloResourceRouter$3.doRoute(HelloResourceRouter.java:98) ~[classes/:na]
+	at restx.entity.StdEntityRoute.handle(StdEntityRoute.java:139) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.ResponseCloserFilter.handle(ResponseCloserFilter.java:28) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.CacheFilter$1.handle(CacheFilter.java:51) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.security.RestxSessionLogFilter.handle(RestxSessionLogFilter.java:43) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.security.RestxSessionCookieFilter.handle(RestxSessionCookieFilter.java:96) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.stats.RestxStatsCollectionFilter.handle(RestxStatsCollectionFilter.java:39) ~[restx-stats-admin-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.StdRestxMainRouter.route(StdRestxMainRouter.java:152) ~[restx-core-0.34.jar:na]
+	at restx.RestxMainRouterFactory$PerRequestFactoryLoader.route(RestxMainRouterFactory.java:228) [restx-core-0.34.jar:na]
+	at restx.RestxMainRouterFactory$RecordingMainRouter.route(RestxMainRouterFactory.java:185) [restx-core-0.34.jar:na]
+	at restx.servlet.AbstractRestxMainRouterServlet.service(AbstractRestxMainRouterServlet.java:48) [restx-servlet-0.34.jar:na]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:770) [javax.servlet-api-3.0.1.jar:3.0.1]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669) [jetty-servlet-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) [jetty-servlet-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:536) [jetty-security-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382) [jetty-servlet-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:52) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:365) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856) [jetty-http-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-http-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628) [jetty-io-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52) [jetty-io-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_55]
+2015-03-13 08:57:04,395 [qtp885216587-14 ] [user1     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] POST /mypojo >> BAD_REQUEST - 92,75 ms
+2015-03-13 08:57:05,444 [qtp885216587-14 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:05,508 [qtp885216587-14 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] POST /mypojo - per request factory created in 683,1 ms
+2015-03-13 08:57:05,524 [qtp885216587-14 ] [user1     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] POST /mypojo >> OK - 15,76 ms
+2015-03-13 08:57:06,126 [qtp885216587-14 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:06,167 [qtp885216587-14 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /message - per request factory created in 329,9 ms
+2015-03-13 08:57:06,179 [qtp885216587-14 ] [user2     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /message >> FORBIDDEN - 11,37 ms
+2015-03-13 08:57:06,462 [main            ] [          ] INFO  o.e.j.s.listener.ELContextCleaner - javax.el.BeanELResolver purged
+2015-03-13 08:57:50,903 [main            ] [          ] INFO  org.eclipse.jetty.server.Server - jetty-8.1.8.v20121106
+2015-03-13 08:57:51,145 [main            ] [          ] INFO  restx.RestxMainRouterFactory - LOADING MAIN ROUTER
+2015-03-13 08:57:51,145 [main            ] [          ] INFO  restx.RestxMainRouterFactory - 
+--------------------------------------
+ -- RESTX >> LOAD ON REQUEST << >> CLEAN << >> TEST MODE <<
+ -- for admin console,
+ --   VISIT http://127.0.0.1:54321/api/@/ui/
+ --
+
+2015-03-13 08:57:52,234 [qtp876979758-14 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:52,367 [qtp876979758-14 ] [          ] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+2015-03-13 08:57:52,485 [qtp876979758-14 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /hello ? who=xavier - per request factory created in 1,136 s
+2015-03-13 08:57:52,497 [qtp876979758-14 ] [          ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /hello ? who=xavier >> OK - 10,94 ms
+2015-03-13 08:57:53,108 [qtp876979758-14 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:53,167 [qtp876979758-14 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /message - per request factory created in 443,2 ms
+2015-03-13 08:57:53,194 [qtp876979758-14 ] [admin     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /message >> OK - 26,39 ms
+2015-03-13 08:57:53,731 [qtp876979758-14 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:53,791 [qtp876979758-14 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /message - per request factory created in 365,6 ms
+2015-03-13 08:57:53,807 [qtp876979758-14 ] [user1     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /message >> OK - 15,80 ms
+2015-03-13 08:57:54,348 [qtp876979758-14 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:54,392 [qtp876979758-14 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] POST /mypojo - per request factory created in 342,0 ms
+2015-03-13 08:57:54,489 [qtp876979758-14 ] [user1     ] WARN  restx.StdRestxMainRouter - request raised IllegalArgumentException: ConstraintViolationImpl{interpolatedMessage='darf nicht null sein', propertyPath=value, rootBeanClass=class com.formulasearchengine.backend.basex.rest.HelloResource$MyPOJO, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+java.lang.IllegalArgumentException: ConstraintViolationImpl{interpolatedMessage='darf nicht null sein', propertyPath=value, rootBeanClass=class com.formulasearchengine.backend.basex.rest.HelloResource$MyPOJO, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+	at restx.validation.Validations.checkValid(Validations.java:34) ~[restx-core-0.34.jar:na]
+	at com.formulasearchengine.backend.basex.rest.HelloResourceRouter$3.doRoute(HelloResourceRouter.java:102) ~[classes/:na]
+	at com.formulasearchengine.backend.basex.rest.HelloResourceRouter$3.doRoute(HelloResourceRouter.java:98) ~[classes/:na]
+	at restx.entity.StdEntityRoute.handle(StdEntityRoute.java:139) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.ResponseCloserFilter.handle(ResponseCloserFilter.java:28) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.CacheFilter$1.handle(CacheFilter.java:51) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.security.RestxSessionLogFilter.handle(RestxSessionLogFilter.java:43) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.security.RestxSessionCookieFilter.handle(RestxSessionCookieFilter.java:96) ~[restx-core-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.stats.RestxStatsCollectionFilter.handle(RestxStatsCollectionFilter.java:39) ~[restx-stats-admin-0.34.jar:na]
+	at restx.RestxHandlerMatch.handle(RestxHandlerMatch.java:56) ~[restx-core-0.34.jar:na]
+	at restx.StdRestxMainRouter.route(StdRestxMainRouter.java:152) ~[restx-core-0.34.jar:na]
+	at restx.RestxMainRouterFactory$PerRequestFactoryLoader.route(RestxMainRouterFactory.java:228) [restx-core-0.34.jar:na]
+	at restx.RestxMainRouterFactory$RecordingMainRouter.route(RestxMainRouterFactory.java:185) [restx-core-0.34.jar:na]
+	at restx.servlet.AbstractRestxMainRouterServlet.service(AbstractRestxMainRouterServlet.java:48) [restx-servlet-0.34.jar:na]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:770) [javax.servlet-api-3.0.1.jar:3.0.1]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669) [jetty-servlet-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) [jetty-servlet-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:536) [jetty-security-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382) [jetty-servlet-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:52) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:365) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856) [jetty-http-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-http-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628) [jetty-io-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52) [jetty-io-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.8.v20121106.jar:8.1.8.v20121106]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_55]
+2015-03-13 08:57:54,491 [qtp876979758-14 ] [user1     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] POST /mypojo >> BAD_REQUEST - 97,34 ms
+2015-03-13 08:57:55,013 [qtp876979758-17 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:55,052 [qtp876979758-17 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] POST /mypojo - per request factory created in 334,2 ms
+2015-03-13 08:57:55,068 [qtp876979758-17 ] [user1     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] POST /mypojo >> OK - 15,51 ms
+2015-03-13 08:57:55,582 [qtp876979758-17 ] [          ] INFO  restx.stats.RestxStatsCollector - collecting and sharing stats enabled - see http://restx.io/stats.html for details.
+2015-03-13 08:57:55,651 [qtp876979758-17 ] [          ] INFO  restx.RestxMainRouterFactory - [RESTX REQUEST] GET /message - per request factory created in 352,2 ms
+2015-03-13 08:57:55,665 [qtp876979758-17 ] [user2     ] INFO  restx.StdRestxMainRouter - << [RESTX REQUEST] GET /message >> FORBIDDEN - 12,93 ms
+2015-03-13 08:57:55,934 [main            ] [          ] INFO  o.e.j.s.listener.ELContextCleaner - javax.el.BeanELResolver purged
