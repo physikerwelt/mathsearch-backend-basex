@@ -38,3 +38,12 @@ time java -Xmx12G -jar basex-backend-0.0.1-SNAPSHOT-jar-with-dependencies.jar -d
 * Up to 96% correct.
 * 92% according to the new formula centric match.
 * No errors during import.
+
+MathSearchBackend baseX
+=======================
+
+[![Build Status](https://travis-ci.org/physikerwelt/mathsearch-backend-basex.svg)](https://travis-ci.org/physikerwelt/mathsearch-backend-basex)
+
+[![MavenCentral](https://maven-badges.herokuapp.com/maven-central/com.formulasearchengine.mathsearch.backend/basex/badge.svg)](maven-badges.herokuapp.com/maven-central/com.formulasearchengine.mathsearch.backend/basex/)
+
+[![Coverage Status](https://coveralls.io/repos/physikerwelt/mathsearch-backend-basex/badge.svg)](https://coveralls.io/r/physikerwelt/mathsearch-backend-basex )
